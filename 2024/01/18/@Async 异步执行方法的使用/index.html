@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"zzzeroone.github.io","root":"/blogs/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1、未启用异步支持Spring Boot默认情况下不启用异步支持，确保在主配置类上添加@EnableAsync注解以启用异步功能。 12345678java@SpringBootApplication@EnableAsyncpublic class Application &#123;    public static void main(String[] args) &#123;">
+  <meta name="description" content="layout: pagatitle: @Async 异步执行方法的使用date: 2024-01-18 17:47:56tags: 1、未启用异步支持Spring Boot默认情况下不启用异步支持，确保在主配置类上添加@EnableAsync注解以启用异步功能。 12345678java@SpringBootApplication@EnableAsyncpublic class Applicati">
 <meta property="og:type" content="article">
 <meta property="og:title" content="米兰的小铁匠 blogs">
 <meta property="og:url" content="https://zzzeroone.github.io/blogs/2024/01/18/@Async%20%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="米兰的小铁匠 blogs">
-<meta property="og:description" content="1、未启用异步支持Spring Boot默认情况下不启用异步支持，确保在主配置类上添加@EnableAsync注解以启用异步功能。 12345678java@SpringBootApplication@EnableAsyncpublic class Application &#123;    public static void main(String[] args) &#123;">
+<meta property="og:description" content="layout: pagatitle: @Async 异步执行方法的使用date: 2024-01-18 17:47:56tags: 1、未启用异步支持Spring Boot默认情况下不启用异步支持，确保在主配置类上添加@EnableAsync注解以启用异步功能。 12345678java@SpringBootApplication@EnableAsyncpublic class Applicati">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-18T09:40:51.483Z">
-<meta property="article:modified_time" content="2024-01-18T09:40:33.873Z">
+<meta property="article:modified_time" content="2024-01-18T09:50:13.606Z">
 <meta property="article:author" content="米兰的小铁匠">
 <meta name="twitter:card" content="summary">
 
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-01-18 17:40:51 / 修改时间：17:40:33" itemprop="dateCreated datePublished" datetime="2024-01-18T17:40:51+08:00">2024-01-18</time>
+              <time title="创建时间：2024-01-18 17:40:51 / 修改时间：17:50:13" itemprop="dateCreated datePublished" datetime="2024-01-18T17:40:51+08:00">2024-01-18</time>
             </span>
 
           
@@ -188,7 +188,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1、未启用异步支持"><a href="#1、未启用异步支持" class="headerlink" title="1、未启用异步支持"></a>1、未启用异步支持</h4><p>Spring Boot默认情况下不启用异步支持，确保在主配置类上添加@EnableAsync注解以启用异步功能。</p>
+        <p>layout: paga<br>title: @Async 异步执行方法的使用<br>date: 2024-01-18 17:47:56<br>tags:</p>
+<h4 id="1、未启用异步支持"><a href="#1、未启用异步支持" class="headerlink" title="1、未启用异步支持"></a>1、未启用异步支持</h4><p>Spring Boot默认情况下不启用异步支持，确保在主配置类上添加@EnableAsync注解以启用异步功能。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line">@SpringBootApplication</span><br><span class="line">@EnableAsync</span><br><span class="line">public class Application &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、没有配置线程池"><a href="#2、没有配置线程池" class="headerlink" title="2、没有配置线程池"></a>2、没有配置线程池</h4><p>如果没有显式地配置线程池，Spring Boot将使用默认的SimpleAsyncTaskExecutor实现。<br>在生产环境，可能导致性能问题。建议使用自定义的线程池配置，推荐ThreadPoolTaskExecutor。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAsync</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AsyncConfig</span> <span class="keyword">implements</span> <span class="title class_">AsyncConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Executor <span class="title function_">getAsyncExecutor</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">ThreadPoolTaskExecutor</span> <span class="variable">executor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ThreadPoolTaskExecutor</span>();</span><br><span class="line">        executor.setCorePoolSize(<span class="number">10</span>); <span class="comment">// 设置核心线程数</span></span><br><span class="line">        executor.setMaxPoolSize(<span class="number">100</span>); <span class="comment">// 设置最大线程数</span></span><br><span class="line">        executor.setQueueCapacity(<span class="number">10</span>); <span class="comment">// 设置队列容量</span></span><br><span class="line">        executor.setThreadNamePrefix(<span class="string">&quot;Async-&quot;</span>); <span class="comment">// 设置线程名前缀</span></span><br><span class="line">        executor.initialize();</span><br><span class="line">        <span class="keyword">return</span> executor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其他配置方法...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
