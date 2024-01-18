@@ -1,3 +1,8 @@
+layout: paga
+title: maven打包 代码依赖库分离
+date: 2024-01-18 17:47:56
+tags:
+
 ```
 <build>
         <finalName>${project.artifactId}</finalName>
